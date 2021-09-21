@@ -20,7 +20,7 @@ export const Swap: React.FC<Props> = ({tokenA, tokenB}) => {
 
   const router = useContext(UniswapV2Router02Context);
   const [exchangeAmount, setExchangeAmount] = useState<string>("0");
-  const [currentAddress, setCurrentAddress] = useContext(CurrentAddressContext);
+  const [currentAddress] = useContext(CurrentAddressContext);
 
   const [amount, setAmount] = useState<number>(0);
 
@@ -42,7 +42,8 @@ export const Swap: React.FC<Props> = ({tokenA, tokenB}) => {
       [tokenA, tokenB],
       currentAddress,
       time
-    )).wait();
+
+      )).wait();
   };
 
   useEffect(() => {
